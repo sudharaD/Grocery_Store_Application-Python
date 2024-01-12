@@ -78,6 +78,39 @@ CREATE TABLE `grocery_store`.`uom` (
   PRIMARY KEY (`uom_id`));
 ```
 
+Create Table - orders
+
+```sql
+CREATE TABLE `grocery_store`.`orders` (
+  `order_id` INT NOT NULL AUTO_INCREMENT,
+  `customer_name` VARCHAR(80) NOT NULL,
+  `total` DOUBLE NOT NULL,
+  `datetime` DATETIME NOT NULL,
+  PRIMARY KEY (`order_id`));
+```
+
+Create table - order details & setup foreign keys
+
+```sql
+CREATE TABLE `grocery_store`.`order_details` (
+  `order_id` INT NOT NULL AUTO_INCREMENT,
+  `product_id` INT NOT NULL,
+  `quantity` DOUBLE NOT NULL,
+  `total_price` DOUBLE NOT NULL,
+  PRIMARY KEY (`order_id`),
+  INDEX `fk_product_id_idx` (`product_id` ASC) VISIBLE,
+  CONSTRAINT `fk_order_id`
+    FOREIGN KEY (`order_id`)
+    REFERENCES `grocery_store`.`orders` (`order_id`)
+    ON DELETE NO ACTION
+    ON UPDATE RESTRICT,
+  CONSTRAINT `fk_product_id`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `grocery_store`.`products` (`product_id`)
+    ON DELETE NO ACTION
+    ON UPDATE RESTRICT);
+```
+
 Insert Data - uom
 
 ```sql
@@ -89,6 +122,12 @@ Insert Data - products
 
 ```sql
 INSERT INTO `grocery_store`.`products` (`product_id`, `name`, `uom_id`, `price_per_unit`) VALUES ('2', 'rice', '2', '200');
+```
+
+Insert Data - orders
+
+```sql
+INSERT INTO `grocery_store`.`orders` (`order_id`, `customer_name`, `total`, `datetime`) VALUES ('1', 'ervin', '600', '20231229');
 ```
 
 Setup Foreign Key - products table
