@@ -150,6 +150,10 @@ ADD CONSTRAINT `fk_uom_id`
 
 ## Create the connection with SQL server
 
+```bash
+pip install mysql-connector-python
+```
+
 ```python
 import mysql.connector
 
