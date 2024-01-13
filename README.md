@@ -143,3 +143,7 @@ ADD CONSTRAINT `fk_uom_id`
   ON DELETE NO ACTION
   ON UPDATE RESTRICT;
 ```
+
+## Used Vertical slice development
+
+![development_strategy - verticle_slice](data/development_strategy - verticle_slice.png)
