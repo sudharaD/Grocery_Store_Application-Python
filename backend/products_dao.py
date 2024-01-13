@@ -75,10 +75,12 @@ if __name__ == "__main__":
 
     product = {"product_name": "broom", "uom_id": "1", "price_per_unit": "185"}
 
-    # all_products = get_all_products(connection)
-    # print(all_products)
+    all_products = get_all_products(connection)
+    print(all_products)
 
     # last_row_id = insert_product(connection, product)
     # print(last_row_id)
 
-    delete_product(connection, 17)
+    # delete_product(connection, 17)
+
+    # TODO: Set the requirements.txt file -  pip install -r requirements.txt

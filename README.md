@@ -147,3 +147,33 @@ ADD CONSTRAINT `fk_uom_id`
 ## Used Vertical slice development
 
 ![development_strategy - verticle_slice](data/development_strategy-verticle_slice.png)
+
+## Create the connection with SQL server
+
+```bash
+pip install mysql-connector-python
+```
+
+```python
+import mysql.connector
+
+__cnx = None
+
+
+def get_sql_connection():
+    global __cnx
+
+    if __cnx == None:
+        # Create the connection with sql server
+        __cnx = mysql.connector.connect(
+            user="root", password="password", host="127.0.0.1", database="grocery_store"
+        )
+
+    return __cnx
+```
+
+### Functions for the product handling
+
+- get_all_products()
+- insert_product(connection, product)
+- delete_product(connection, product_id)
