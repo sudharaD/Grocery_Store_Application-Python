@@ -146,4 +146,4 @@ ADD CONSTRAINT `fk_uom_id`
 
 ## Used Vertical slice development
 
-![development_strategy - verticle_slice](data/development_strategy - verticle_slice.png)
+![development_strategy - verticle_slice](data/development_strategy-verticle_slice.png)
