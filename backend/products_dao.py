@@ -51,6 +51,15 @@ def insert_product(connection, product):
 
     connection.commit()
 
+    """
+    In database systems, a transaction is a sequence of one or more SQL statements that are executed as a single unit of work. 
+    The concept of a transaction ensures that either all the operations within the transaction are successfully executed, or none of them are. 
+    The connection.commit() method is used to commit the current transaction and make the changes made during that transaction permanent.
+
+    In the provided code, after executing the INSERT statement using cursor.execute(query, data), the changes are not immediately applied to the database. 
+    Instead, they are held in a temporary state until you explicitly commit the changes using the connection.commit() method.
+    """
+
     return cursor.lastrowid
 
 
