@@ -111,17 +111,16 @@ def edit_product(connection, product):
 if __name__ == "__main__":
     connection = get_sql_connection()
 
-    product = {
-        "product_id": "18",
-        "name": "chips",
-        "uom_id": "2",
-        "price_per_unit": "1000",
-    }
+    # product = {
+    #     "product_name": "coca cola",
+    #     "uom_id": "3",
+    #     "price_per_unit": "200",
+    # }
 
     # all_products = get_all_products(connection)
     # print(all_products)
 
-    # last_row_id = insert_product(connection, product)
+    # last_row_id = insert_new_product(connection, product)
     # print(last_row_id)
 
     # delete_product(connection, 17)
@@ -130,3 +129,4 @@ if __name__ == "__main__":
     # print(product_id)
 
     # TODO: Set the requirements.txt file -  pip install -r requirements.txt
+    # TODO: Implement edit scenario
