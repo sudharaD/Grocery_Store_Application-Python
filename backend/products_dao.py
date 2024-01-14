@@ -82,10 +82,10 @@ def delete_product(connection, product_id):
 if __name__ == "__main__":
     connection = get_sql_connection()
 
-    product = {"product_name": "broom", "uom_id": "1", "price_per_unit": "185"}
+    # product = {"product_name": "broom", "uom_id": "1", "price_per_unit": "185"}
 
-    all_products = get_all_products(connection)
-    print(all_products)
+    # all_products = get_all_products(connection)
+    # print(all_products)
 
     # last_row_id = insert_product(connection, product)
     # print(last_row_id)
