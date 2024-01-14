@@ -79,10 +79,44 @@ def delete_product(connection, product_id):
     connection.commit()
 
 
+def edit_product(connection, product):
+    """
+    Pass 'sql connection' and product detail dictionary as the parameters.
+    Edit the product from the products table.
+    """
+
+    # Querying Data Using Connector
+    cursor = connection.cursor()
+
+    query = (
+        "UPDATE grocery_store.products "
+        "SET name = %s, uom_id = %s, price_per_unit = %s "
+        "WHERE product_id = %s"
+    )
+
+    data = (
+        product["name"],
+        product["uom_id"],
+        product["price_per_unit"],
+        product["product_id"],
+    )
+
+    cursor.execute(query, data)
+
+    connection.commit()
+
+    return product["product_id"]
+
+
 if __name__ == "__main__":
     connection = get_sql_connection()
 
-    # product = {"product_name": "broom", "uom_id": "1", "price_per_unit": "185"}
+    product = {
+        "product_id": "18",
+        "name": "chips",
+        "uom_id": "2",
+        "price_per_unit": "1000",
+    }
 
     # all_products = get_all_products(connection)
     # print(all_products)
@@ -91,5 +125,8 @@ if __name__ == "__main__":
     # print(last_row_id)
 
     # delete_product(connection, 17)
+
+    # product_id = edit_product(connection, product)
+    # print(product_id)
 
     # TODO: Set the requirements.txt file -  pip install -r requirements.txt
