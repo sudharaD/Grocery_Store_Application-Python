@@ -34,7 +34,7 @@ def get_all_products(connection):
     return response
 
 
-def insert_product(connection, product):
+def insert_new_product(connection, product):
     """
     Pass 'sql connection' and product detail dictionary as the parameters.
     Insert the product into the products table.
