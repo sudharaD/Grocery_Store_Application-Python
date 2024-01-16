@@ -38,19 +38,46 @@ def insert_order(connection, order):
     return order_id
 
 
+def get_all_orders(connection):
+    """
+    Pass 'sql connection' as a parameter.
+    Get all the orders from a order table and return as a list.
+    """
+    cursor = connection.cursor()
+
+    query = "SELECT * from orders"
+
+    cursor.execute(query)
+
+    response = []
+
+    for order_id, customer_name, total, datetime in cursor:
+        response.append(
+            {
+                "order_id": order_id,
+                "customer_name": customer_name,
+                "total": total,
+                "datetime": datetime,
+            }
+        )
+
+    return response
+
+
 if __name__ == "__main__":
     connection = get_sql_connection()
-    print(
-        insert_order(
-            connection,
-            {
-                "customer_name": "khali",
-                "grand_total": 400,
-                "order_details": [
-                    {"product_id": 1, "quantity": 2, "total_price": 50},
-                    {"product_id": 1, "quantity": 2, "total_price": 50},
-                    {"product_id": 1, "quantity": 2, "total_price": 50},
-                ],
-            },
-        )
-    )
+    # print(
+    #     insert_order(
+    #         connection,
+    #         {
+    #             "customer_name": "khali",
+    #             "grand_total": 400,
+    #             "order_details": [
+    #                 {"product_id": 1, "quantity": 2, "total_price": 50},
+    #                 {"product_id": 1, "quantity": 2, "total_price": 50},
+    #                 {"product_id": 1, "quantity": 2, "total_price": 50},
+    #             ],
+    #         },
+    #     )
+    # )
+    print(get_all_orders(connection))
