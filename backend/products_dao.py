@@ -4,7 +4,7 @@ from sql_connection import get_sql_connection
 def get_all_products(connection):
     """
     Pass 'sql connection' as a parameter.
-    Store all the products from a products table and return as a list.
+    Get all the products from a products table and return as a list.
     """
     response = []
 
@@ -129,4 +129,3 @@ if __name__ == "__main__":
     # print(product_id)
 
     # TODO: Set the requirements.txt file -  pip install -r requirements.txt
-    # TODO: Implement edit scenario

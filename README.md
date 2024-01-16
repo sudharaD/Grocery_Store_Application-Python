@@ -1,5 +1,7 @@
 # Grocery Store Application-Python
 
+![UI-Dashboard](ui/images/dashboard_ss.png)
+
 Brief description of your project.
 
 ## Setup
@@ -177,3 +179,12 @@ def get_sql_connection():
 - get_all_products()
 - insert_product(connection, product)
 - delete_product(connection, product_id)
+
+### Functions for the order handling
+
+- insert_order(connection, order):
+- get_all_orders(connection):
+
+### Functions for the uoms handling
+
+- get_uoms(connection):
